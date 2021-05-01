@@ -37,22 +37,23 @@ export default {
        // TODO: HAcer fetch de TODOS los articulos y filtrar por el id de la ruta. Investigar metodos find/filterX/map/foreach 
        
        
-    //    /**
-    //     * Consumir todos los articulos del API y buscar en un array con filter().
-    //     * 
-    //     * @return {Array}
-    //     */
-    //    async consumirArticulo() { 
-    //        try{
-    //            const data = await fetch('https://jsonplaceholder.typicode.com/posts')
-    //            const array = await data.json()
-    //            this.articulo = array.filter(item => {
-    //                return item.id == this.$route.params.id
-    //            })
-    //        }catch(e){
-    //            return e.message
-    //        } 
-    //    },
+       /**
+        * Consumir todos los articulos del API y buscar en un array con filter().
+        * 
+        * @return {Array}
+        */
+       async consumirArticulo() { 
+           try{
+               const data = await fetch('https://jsonplaceholder.typicode.com/posts')
+               const array = await data.json()
+               const articulo = array.filter(item => {
+                   return item.id == this.$route.params.id
+               })
+               this.articulo= articulo[0]
+           }catch(e){
+               return e.message
+           } 
+       },
        
     //    /**
     //     * Consumir todos los articulos del API y buscar en un array con find().
@@ -69,8 +70,48 @@ export default {
     //        } 
     //    },
     
+
+    // /**
+    //     * Consumir todos los articulos del API y buscar en un array con map().
+    //     * 
+    //     * @return {Object}
+    //     */
+    //    async consumirArticulo() { 
+    //        try{
+    //            const data = await fetch('https://jsonplaceholder.typicode.com/posts')
+    //            const array = await data.json()
+    //            const articulos = array.map(item => {
+    //                if( item.id === parseInt(this.$route.params.id)) {
+    //                    this.articulo = item
+    //                }
+    //            })  
+    //            console.log(this.articulo)    
+    //        }catch(e){
+    //            return e.message
+    //        } 
+    //    },
     
-    
+    //foreach
+    // /**
+    //     * Consumir todos los articulos del API y buscar en un array con foreach().
+    //     * 
+    //     * @return {Object}
+    //     */
+    //    async consumirArticulo() { 
+    //        try{
+    //            const data = await fetch('https://jsonplaceholder.typicode.com/posts')
+    //            const array = await data.json()
+    //            this.articulo = array.foreach((element, index, array) => {
+    //                if(element.id = this.$route.params.id) {
+    //                    console.log(element.id)
+    //                    return element
+    //                }
+    //            })  
+    //            console.log(this.articulo)    
+    //        }catch(e){
+    //            return e.message
+    //        } 
+    //    },
     
    },
    
